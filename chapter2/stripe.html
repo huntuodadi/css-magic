@@ -5,8 +5,8 @@
     <title>Title</title>
     <style>
         div {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             margin: auto;
             margin-top: 10px;
 
@@ -22,12 +22,22 @@
             background-size: 30px 100%;
         }
         div.toDeg {
-            background: linear-gradient(45deg,
+            background: linear-gradient(60deg,
             #fb3 25%, #58a 0, #58a 50%,
             #fb3 0, #fb3 75%, #58a 0);
             background-size: 20px 20px;
         }
-        div.
+        div.repeating {
+            background: repeating-linear-gradient(60deg,
+            #fb3, #fb3 15px, #58a 0, #58a 30px);
+        }
+        div.sameColorSystem {
+            background: #58a;
+            background-image: repeating-linear-gradient(30deg,
+            hsla(0,0%,100%,.1),
+            hsla(0,0%,100%,.1) 15px,
+            transparent 0, transparent 30px);
+        }
     </style>
 </head>
 <body>
@@ -36,5 +46,7 @@
     </div>
 <div class="toRight"></div>
 <div class="toDeg"></div>
+<div class="repeating"></div>
+<div class="sameColorSystem"></div>
 </body>
 </html>
