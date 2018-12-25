@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .image-slider {
+            position:relative; display: inline-block;
+        }
+        .image-slider > div {
+            position: absolute;
+            top: 0; bottom: 0; left: 0;
+            width: 50%; /* 初始宽度 */
+            overflow: hidden; /* 让它可以裁切图片 */
+            resize: horizontal;
+        }
+        .image-slider img { 
+            display: block; 
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-slider"> 
+        <div>
+            <img src="./adamcatlace-before.jpg" alt="Before" />
+        </div>
+        <img src="./adamcatlace-after.jpg" alt="After" /> 
+    </div>
+</body>
+</html>
