@@ -4,28 +4,44 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .image-slider {
-            position:relative; display: inline-block;
-        }
-        .image-slider > div {
-            position: absolute;
-            top: 0; bottom: 0; left: 0;
-            width: 50%; /* 初始宽度 */
-            overflow: hidden; /* 让它可以裁切图片 */
-            resize: horizontal;
-        }
-        .image-slider img { 
-            display: block; 
-            user-select: none;
-        }
+        .image-slider { position:relative; display: inline-block;
+}
+.image-slider > div { position: absolute;
+top: 0; bottom: 0; left: 0; width: 50%;
+overflow: hidden;
+}
+.image-slider img {
+display: block;
+user-select: none; }
     </style>
 </head>
 <body>
-    <div class="image-slider"> 
-        <div>
-            <img src="./adamcatlace-before.jpg" alt="Before" />
+        <div class="image-slider"> 
+            <div>
+                <img src="adamcatlace-before.jpg" alt="Before" />
+            </div>
+                <img src="adamcatlace-after.jpg" alt="After" />
+                <input type="range" /> 
         </div>
-        <img src="./adamcatlace-after.jpg" alt="After" /> 
-    </div>
+
+
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            console.log('jqeury', document.querySelector('.image-slider'));
+            document.querySelectorAll('.image-slider').forEach(function(slider) { // 创建附加的div元素，并用它包住第一个图片元素
+            var div = document.createElement('div');
+            var img = slider.querySelector('img');
+            console.log('slider', slider);
+            console.log('img', img);
+                slider.insertBefore(div,img);
+                div.appendChild(img);
+            // 创建滑块
+            var range = document.createElement('input'); range.type = 'range';
+            range.oninput = function() {
+            div.style.width = this.value + '%'; };
+                slider.appendChild(range);
+            });
+        </script>
 </body>
 </html>
